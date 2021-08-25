@@ -9,13 +9,13 @@ namespace _07.JaggedArrayManipulator
         {
             int rows = int.Parse(Console.ReadLine());
 
-            int[][] jaggedArray = new int[rows][];
+            decimal[][] jaggedArray = new decimal[rows][];
 
             for (int i = 0; i < rows; i++)
             {
-                int[] column = Console.ReadLine()
+                decimal[] column = Console.ReadLine()
                     .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(int.Parse)
+                    .Select(decimal.Parse)
                     .ToArray();
 
                 jaggedArray[i] = column;
