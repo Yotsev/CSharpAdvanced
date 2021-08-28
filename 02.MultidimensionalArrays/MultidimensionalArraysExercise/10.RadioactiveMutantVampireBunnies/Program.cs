@@ -14,186 +14,163 @@ namespace _10.RadioactiveMutantVampireBunnies
                 .ToArray();
 
             char[,] lair = new char[lairSize[0], lairSize[1]];
+            int playerRow = -1;
+            int playerCol = -1;
 
             for (int row = 0; row < lair.GetLength(0); row++)
             {
-                string rows = Console.ReadLine();
+                char[] rows = Console.ReadLine().ToCharArray();
 
                 for (int col = 0; col < lair.GetLength(1); col++)
                 {
                     lair[row, col] = rows[col];
+
+                    if (rows[col] == 'P')
+                    {
+                        playerRow = row;
+                        playerCol = col;
+                    }
                 }
             }
 
-            string commands = Console.ReadLine();
+            char[] actions = Console.ReadLine().ToCharArray();
+            bool isPlayerWon = false;
+            bool isPlayerDead = false;
 
-            int[] playerPosition = GetPosition(lair);
-
-            bool playerWon = false;
-
-            for (int i = 0; i < commands.Length; i++)
+            foreach (char diraction in actions)
             {
-                char direction = commands[i];
-                int targetRow = 0;
-                int targetCol = 0;
+                int newPlayerRow = playerRow;
+                int newPlayerCol = playerCol;
 
-                if (direction == 'U')
+                if (diraction == 'U')
                 {
-                    targetRow = playerPosition[0] - 1;
-                    targetCol = playerPosition[1];
+                    newPlayerRow--;
                 }
-                else if (direction == 'D')
+                else if (diraction == 'D')
                 {
-                    targetRow = playerPosition[0] + 1;
-                    targetCol = playerPosition[1];
+                    newPlayerRow++;
                 }
-                else if (direction == 'L')
+                else if (diraction == 'L')
                 {
-                    targetRow = playerPosition[0];
-                    targetCol = playerPosition[1]-1;
+                    newPlayerCol--;
                 }
-                else if (direction == 'R')
+                else if (diraction == 'R')
                 {
-                    targetRow = playerPosition[0];
-                    targetCol = playerPosition[1] + 1;
+                    newPlayerCol++;
                 }
 
-                if (IsInLair(lair,targetRow,targetCol))
+                lair[playerRow, playerCol] = '.';
+                isPlayerWon = !IsValidCell(newPlayerRow, newPlayerCol, lairSize[0], lairSize[1]);
+
+                if (!isPlayerWon)
                 {
-                    if (lair[targetRow,targetCol] == '.')
+                    if (lair[newPlayerRow, newPlayerCol] == '.')
                     {
-                        lair[targetRow, targetCol] = 'P';
-                        lair[playerPosition[0], playerPosition[1]] = '.';
-                        playerPosition = GetPosition(lair);
-                        RabbitsMultiplay(lair);
+                        lair[newPlayerRow, newPlayerCol] = 'P';
                     }
-                    else
+                    else if (lair[newPlayerRow, newPlayerCol] == 'B')
                     {
-                        lair[playerPosition[0], playerPosition[1]] = '.';
-                        playerPosition = new int[] { targetRow, targetCol };
-                        RabbitsMultiplay(lair);
-                        break;
+                        isPlayerDead = true;
                     }
+
+                    playerRow = newPlayerRow;
+                    playerCol = newPlayerCol;
                 }
-                else
+
+                List<int[]> bunnyIndex = GetBunniesIndexes(lair);
+                BunnyMultiplay(bunnyIndex, lair);
+
+                if (lair[playerRow, playerCol] == 'B')
                 {
-                    lair[playerPosition[0], playerPosition[1]] = '.';
-                    RabbitsMultiplay(lair);
-                    playerWon = true;
+                    isPlayerDead = true;
+                }
+
+                if (isPlayerWon || isPlayerDead)
+                {
                     break;
                 }
             }
 
-            if (playerWon)
+            PrintLair(lair);
+
+            string result = string.Empty;
+
+            if (isPlayerWon)
             {
-                PrintLair(lair);
-                Console.WriteLine($"won: {playerPosition[0]} {playerPosition[1]}");
+                result += "won:";
             }
             else
             {
-                PrintLair(lair);
-                Console.WriteLine($"dead: {playerPosition[0]} {playerPosition[1]}");
-            }
-        }
-
-        private static void RabbitsMultiplay(char[,] lair)
-        {
-            List<int> rabbitsPositon = GetRabbits(lair);
-            bool playerDead = false;
-            for (int i = 0; i < rabbitsPositon.Count; i+=2)
-            {
-                int[] positionToMultiplay = new int[] { 
-                    rabbitsPositon[i]-1,rabbitsPositon[i+1],
-                    rabbitsPositon[i],rabbitsPositon[i+1]-1,
-                    rabbitsPositon[i]+1,rabbitsPositon[i+1],
-                    rabbitsPositon[i],rabbitsPositon[i+1]+1
-                };
-
-                for (int j = 0; j < positionToMultiplay.Length; j+=2)
-                {
-                    if (RabbitCanMultyplay(lair,positionToMultiplay[j],positionToMultiplay[j+1]))
-                    {
-                        if (lair[positionToMultiplay[j], positionToMultiplay[j + 1]] == '.')
-                        {
-                            lair[positionToMultiplay[j], positionToMultiplay[j + 1]] = 'B';
-                        }
-                        else if (lair[positionToMultiplay[j], positionToMultiplay[j + 1]] == 'P')
-                        {
-                            playerDead = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (playerDead)
-                {
-                    break;
-                }
-            }
-        }
-
-        private static bool RabbitCanMultyplay(char[,]lair,int row,int col)
-        {
-            return row >= 0 && row < lair.GetLength(0)
-                && col >= 0 && col < lair.GetLength(1);
-        }
-
-        private static List<int> GetRabbits(char[,] lair)
-        {
-            List<int> positions = new List<int>();
-
-            for (int row = 0; row < lair.GetLength(0); row++)
-            {
-                for (int col = 0; col < lair.GetLength(1); col++)
-                {
-                    if (lair[row,col] == 'B')
-                    {
-                        positions.Add(row);
-                        positions.Add(col);
-                    }
-                }
+                result += "dead:";
             }
 
-            return positions;
-        }
-
-        private static bool IsInLair(char[,]lair,int row, int col)
-        {
-            return row >= 0 && row < lair.GetLength(0)
-                && col >= 0 && col < lair.GetLength(1);
-        }
-
-        private static int[] GetPosition(char[,] lair)
-        {
-            int[] position = new int[2];
-
-            for (int row = 0; row < lair.GetLength(0); row++)
-            {
-                for (int col = 0; col < lair.GetLength(1) - 1; col++)
-                {
-                    if (lair[row,col] == 'P')
-                    {
-                        position[0] = row;
-                        position[1] = col;
-                        break;
-                    }
-                }
-            }
-
-            return position;
+            result += $"{playerRow} {playerCol}";
+            Console.WriteLine(result);
         }
 
         private static void PrintLair(char[,] lair)
         {
             for (int row = 0; row < lair.GetLength(0); row++)
             {
-                for (int col = 0; col < lair.GetLength(1)-1; col++)
+                for (int col = 0; col < lair.GetLength(1); col++)
                 {
-                    Console.Write($"{lair[row,col] }");
+                    Console.Write(lair[row,col]);
                 }
 
-                Console.WriteLine(lair[row,lair.GetLength(1)-1]);
+                Console.WriteLine();
             }
+        }
+
+        private static void BunnyMultiplay(List<int[]> bunnyIndex, char[,] lair)
+        {
+            foreach (int[] bunny in bunnyIndex)
+            {
+                int bunnyRow = bunny[0];
+                int bunnyCol = bunny[1];
+
+                if (IsValidCell(bunnyRow - 1, bunnyCol, lair.GetLength(0), lair.GetLength(1)))
+                {
+                    lair[bunnyRow - 1, bunnyCol] = 'B';
+                }
+
+                if (IsValidCell(bunnyRow + 1, bunnyCol, lair.GetLength(0), lair.GetLength(1)))
+                {
+                    lair[bunnyRow + 1, bunnyCol] = 'B';
+                }
+
+                if (IsValidCell(bunnyRow, bunnyCol - 1, lair.GetLength(0), lair.GetLength(1)))
+                {
+                    lair[bunnyRow, bunnyCol - 1] = 'B';
+                }
+
+                if (IsValidCell(bunnyRow, bunnyCol + 1, lair.GetLength(0), lair.GetLength(1)))
+                {
+                    lair[bunnyRow, bunnyCol + 1] = 'B';
+                }
+            }
+        }
+
+        private static List<int[]> GetBunniesIndexes(char[,] lair)
+        {
+            List<int[]> bunnies = new List<int[]>();
+
+            for (int row = 0; row < lair.GetLength(0); row++)
+            {
+                for (int col = 0; col < lair.GetLength(1); col++)
+                {
+                    if (lair[row, col] == 'B')
+                    {
+                        bunnies.Add(new int[] { row, col });
+                    }
+                }
+            }
+
+            return bunnies;
+        }
+
+        private static bool IsValidCell(int newPlayerRow, int newPlayerCol, int rows, int cols)
+        {
+            return newPlayerRow >= 0 && newPlayerRow < rows && newPlayerCol >= 0 && newPlayerCol < cols;
         }
     }
 }
