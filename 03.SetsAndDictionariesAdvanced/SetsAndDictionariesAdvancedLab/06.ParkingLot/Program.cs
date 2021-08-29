@@ -31,6 +31,11 @@ namespace _06.ParkingLot
                 command = Console.ReadLine();
             }
 
+            if (cars.Count == 0)
+            {
+                Console.WriteLine("Parking Lot is Empty");
+            }
+
             foreach (var car in cars)
             {
                 Console.WriteLine(car);
