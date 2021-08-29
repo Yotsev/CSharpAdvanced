@@ -104,7 +104,7 @@ namespace _10.RadioactiveMutantVampireBunnies
                 result += "dead:";
             }
 
-            result += $"{playerRow} {playerCol}";
+            result += $" {playerRow} {playerCol}";
             Console.WriteLine(result);
         }
 
