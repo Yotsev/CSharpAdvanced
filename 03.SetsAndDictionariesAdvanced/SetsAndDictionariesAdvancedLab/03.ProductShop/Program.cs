@@ -9,7 +9,7 @@ namespace _03.ProductShop
         {
             string command = Console.ReadLine();
 
-            SortedDictionary<string, Dictionary<string, decimal>> stores = new SortedDictionary<string, Dictionary<string, decimal>>();
+            SortedDictionary<string, Dictionary<string, double>> stores = new SortedDictionary<string, Dictionary<string, double>>();
 
             while (command != "Revision")
             {
@@ -17,11 +17,11 @@ namespace _03.ProductShop
                     .Split(", ", StringSplitOptions.RemoveEmptyEntries);
                 string store = storeInfo[0];
                 string product = storeInfo[1];
-                decimal price = decimal.Parse(storeInfo[2]);
+                double price = double.Parse(storeInfo[2]);
 
                 if (!stores.ContainsKey(store))
                 {
-                    stores.Add(store, new Dictionary<string, decimal>());
+                    stores.Add(store, new Dictionary<string, double>());
                 }
 
                 stores[store].Add(product, price);

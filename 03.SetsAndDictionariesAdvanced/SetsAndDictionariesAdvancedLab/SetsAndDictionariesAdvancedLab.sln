@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.AverageStudentGrades", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.ProductShop", "03.ProductShop\03.ProductShop.csproj", "{D315E3B5-CA2F-42C3-AA5F-3B80BB50D276}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.CitiesByContinentAndCountry", "04.CitiesByContinentAndCountry\04.CitiesByContinentAndCountry.csproj", "{DBD8418C-7784-43F4-8D22-B200C3236F7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D315E3B5-CA2F-42C3-AA5F-3B80BB50D276}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D315E3B5-CA2F-42C3-AA5F-3B80BB50D276}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D315E3B5-CA2F-42C3-AA5F-3B80BB50D276}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD8418C-7784-43F4-8D22-B200C3236F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD8418C-7784-43F4-8D22-B200C3236F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD8418C-7784-43F4-8D22-B200C3236F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD8418C-7784-43F4-8D22-B200C3236F7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
