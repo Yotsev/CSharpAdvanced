@@ -20,7 +20,7 @@ namespace _04.FastFood
 
             while (true)
             {
-                if (quantityOfFood>orders.Peek())
+                if (quantityOfFood>=orders.Peek())
                 {
                     quantityOfFood -= orders.Dequeue();
                 }
