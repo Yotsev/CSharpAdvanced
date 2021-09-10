@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 
 namespace _09.SimpleTextEditor
@@ -9,18 +10,39 @@ namespace _09.SimpleTextEditor
         {
             int numberOfOperations = int.Parse(Console.ReadLine());
 
-            Queue<string> text = new Queue<string>();
-            Queue<string> editedText = new Queue<string>();
+            StringBuilder text = new StringBuilder();
+            Stack<string> textState = new Stack<string>();
 
             for (int i = 0; i < numberOfOperations; i++)
             {
-                string[] commadArgs = Console.ReadLine()
+                string[] command = Console.ReadLine()
                     .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-                string action = commadArgs[0];
+                string action = command[0];
 
+                if (action == "1")
+                {
+                    textState.Push(text.ToString());
+                    string textToApend = command[1];
+                    text.Append(textToApend);
+                }
+                else if (action == "2")
+                {
+                    textState.Push(text.ToString());
+                    int numberOfElementsToRemove = int.Parse(command[1]);
+                    text.Remove(text.Length - numberOfElementsToRemove, numberOfElementsToRemove);
+                }
+                else if (action == "3")
+                {
+                    int index = int.Parse(command[1]);
+                    string charToShow = text.ToString().Substring(index-1,1);
+                    Console.WriteLine(charToShow);
+                }
+                else if (action == "4")
+                {
+                    text.Clear().Append(textState.Pop());
+                }
             }
-           
         }
     }
 }
