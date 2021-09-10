@@ -11,7 +11,7 @@ namespace _09.SimpleTextEditor
             int numberOfOperations = int.Parse(Console.ReadLine());
 
             StringBuilder text = new StringBuilder();
-            Stack<string> textState = new Stack<string>();
+            Stack<string> previousTextState = new Stack<string>();
 
             for (int i = 0; i < numberOfOperations; i++)
             {
@@ -22,13 +22,13 @@ namespace _09.SimpleTextEditor
 
                 if (action == "1")
                 {
-                    textState.Push(text.ToString());
+                    previousTextState.Push(text.ToString());
                     string textToApend = command[1];
                     text.Append(textToApend);
                 }
                 else if (action == "2")
                 {
-                    textState.Push(text.ToString());
+                    previousTextState.Push(text.ToString());
                     int numberOfElementsToRemove = int.Parse(command[1]);
                     text.Remove(text.Length - numberOfElementsToRemove, numberOfElementsToRemove);
                 }
@@ -40,7 +40,7 @@ namespace _09.SimpleTextEditor
                 }
                 else if (action == "4")
                 {
-                    text.Clear().Append(textState.Pop());
+                    text.Clear().Append(previousTextState.Pop());
                 }
             }
         }
