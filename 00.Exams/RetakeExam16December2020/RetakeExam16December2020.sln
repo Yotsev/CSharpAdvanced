@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cooking", "Cooking\Cooking.csproj", "{DBB80033-BB5D-4837-A588-74795F490734}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selling", "Selling\Selling.csproj", "{D5E14A5C-CA43-4508-B1D1-3A90C147F6A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryOpenning", "BakeryOpenning\BakeryOpenning.csproj", "{6F18D4F1-E330-488C-9AD1-17194EC7787F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBB80033-BB5D-4837-A588-74795F490734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBB80033-BB5D-4837-A588-74795F490734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBB80033-BB5D-4837-A588-74795F490734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBB80033-BB5D-4837-A588-74795F490734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E14A5C-CA43-4508-B1D1-3A90C147F6A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E14A5C-CA43-4508-B1D1-3A90C147F6A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E14A5C-CA43-4508-B1D1-3A90C147F6A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E14A5C-CA43-4508-B1D1-3A90C147F6A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F18D4F1-E330-488C-9AD1-17194EC7787F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F18D4F1-E330-488C-9AD1-17194EC7787F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F18D4F1-E330-488C-9AD1-17194EC7787F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F18D4F1-E330-488C-9AD1-17194EC7787F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A46D6CFB-7639-4DDE-A633-4342FB344FDD}
+	EndGlobalSection
+EndGlobal
