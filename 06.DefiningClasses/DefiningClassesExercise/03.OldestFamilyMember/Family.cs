@@ -25,15 +25,7 @@ namespace DefiningClasses
 
         public Person GetOldestMember()
         {
-            Person oldest = new Person();
-
-            foreach (Person person in people)
-            {
-                if (person.Age > oldest.Age)
-                {
-                    oldest = person;
-                }
-            }
+            Person oldest = People.OrderByDescending(p => p.Age).FirstOrDefault();
 
             return oldest;
         }

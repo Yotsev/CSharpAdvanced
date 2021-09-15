@@ -1,15 +1,19 @@
-﻿namespace _07.RawData
-{
-    class Car
-    {
-        private string model;
-        private Engine engine;
-        private Cargo cargo;
-        private Tire[] tires;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-        public Car(string mode, Engine engine,Cargo cargo, Tire[]tires)
+namespace _07.RawData
+{
+    public class Car
+    {
+        public string Model { get; set; }
+        public Engine Engine { get; set; }
+        public Cargo Cargo { get; set; }
+        public Tire[] Tires { get; set; }
+
+        public Car(string model, Engine engine, Cargo cargo, Tire[] tires)
         {
-            Model = mode;
+            Model = model;
             Engine = new Engine();
             Engine = engine;
             Cargo = new Cargo();
@@ -17,27 +21,5 @@
             Tires = new Tire[4];
             Tires = tires;
         }
-        public string Model
-        {
-            get { return model; }
-            set { model = value; }
-        }
-        public Cargo Cargo
-        {
-            get { return cargo; }
-            set { cargo = value; }
-        }
-
-        public Engine Engine
-        {
-            get { return engine; }
-            set { engine = value; }
-        }
-        public Tire[] Tires
-        {
-            get { return tires; }
-            set { tires = value; }
-        }
-
     }
 }

@@ -1,20 +1,12 @@
-﻿namespace _07.RawData
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace _07.RawData
 {
-    class Cargo
+    public class Cargo
     {
-        private int weight;
-        private string type;
-        public int Weight
-        {
-            get { return weight; }
-            set { weight = value; }
-        }
-
-        public string Type
-        {
-            get { return type; }
-            set { type = value; }
-        }
-
+        public string Type { get; set; }
+        public int Weight { get; set; }
     }
 }
