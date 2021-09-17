@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GenericCountMethodStrings
+namespace GenericCountMethodDoubles
 {
     class Program
     {
@@ -9,20 +9,20 @@ namespace GenericCountMethodStrings
         {
             int numberOfBoxes = int.Parse(Console.ReadLine());
 
-            List<Box<string>> boxes = new List<Box<string>>();
+            List<Box<double>> boxes = new List<Box<double>>();
 
             for (int i = 0; i < numberOfBoxes; i++)
             {
-                string input = Console.ReadLine();
-                Box<string> currentBox = new Box<string>();
+                double input = double.Parse(Console.ReadLine());
+                Box<double> currentBox = new Box<double>();
                 currentBox.Value = input;
                 boxes.Add(currentBox);
             }
 
-            Box<string> evaluationBox = new Box<string>();
-            evaluationBox.Value = Console.ReadLine();
+            Box<double> evaluationBox = new Box<double>();
+            evaluationBox.Value = double.Parse(Console.ReadLine());
 
-            Console.WriteLine(CountOfGreaterElements(boxes,evaluationBox));
+            Console.WriteLine(CountOfGreaterElements(boxes, evaluationBox));
         }
 
         public static int CountOfGreaterElements<T>(List<Box<T>> elements, Box<T> compareElement)
