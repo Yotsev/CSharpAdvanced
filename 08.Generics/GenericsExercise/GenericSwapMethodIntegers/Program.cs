@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GenericSwapMethodStrings
+namespace GenericSwapMethodIntegers
 {
-    public class StartUp
+    class Program
     {
         static void Main(string[] args)
         {
 
             int numberOfBoxes = int.Parse(Console.ReadLine());
 
-            List<Box<string>> boxes = new List<Box<string>>();
+            List<Box<int>> boxes = new List<Box<int>>();
 
             for (int i = 0; i < numberOfBoxes; i++)
             {
-                string input = Console.ReadLine();
-                Box<string> currentBox = new Box<string>();
+                int input = int.Parse(Console.ReadLine());
+                Box<int> currentBox = new Box<int>();
 
                 currentBox.Value = input;
                 boxes.Add(currentBox);
@@ -27,9 +27,9 @@ namespace GenericSwapMethodStrings
             int firstIndex = indices[0];
             int secondIndex = indices[1];
 
-            SwapElements<string>(boxes, firstIndex, secondIndex);
+            SwapElements<int>(boxes, firstIndex, secondIndex);
 
-            foreach (Box<string> box in boxes)
+            foreach (Box<int> box in boxes)
             {
                 Console.WriteLine(box);
             }

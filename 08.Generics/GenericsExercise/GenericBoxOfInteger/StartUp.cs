@@ -1,5 +1,4 @@
-﻿using GenericBoxOfString;
-using System;
+﻿using System;
 
 namespace GenericBoxOfInteger
 {

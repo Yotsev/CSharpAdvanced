@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GenericBoxOfInteger
+namespace GenericSwapMethodIntegers
 {
     public class Box<T>
     {
