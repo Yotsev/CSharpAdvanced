@@ -9,7 +9,7 @@ namespace LineNumbers
     {
         static void Main(string[] args)
         {
-           string[] lines = File.ReadAllLines("text.txt");
+            string[] lines = File.ReadAllLines("text.txt");
 
             int counter = 1;
 
@@ -34,15 +34,13 @@ namespace LineNumbers
                         }
                     }
                 }
-
-                StringBuilder bobTheBuilder = new StringBuilder();
-                bobTheBuilder.Append($"Line {counter}: {line} ({charCount})({punctuationsCount})");
-                output.Add(bobTheBuilder.ToString());
+                string newLine = $"Line { counter}: { line} ({ charCount})({ punctuationsCount})";
+                output.Add(newLine);
+                
                 counter++;
             }
 
             File.WriteAllLines("output.txt", output);
-
         }
     }
 }
