@@ -7,8 +7,8 @@ namespace CopyBinaryFile
     {
         static void Main(string[] args)
         {
-            using FileStream reader = new FileStream("copyMe.png", FileMode.Open);
-            using FileStream writer = new FileStream("newImg.png", FileMode.Create);
+            using FileStream reader = new FileStream("../../../copyMe.png", FileMode.Open);
+            using FileStream writer = new FileStream("../../../newImg.png", FileMode.Create);
 
             byte[] buffer = new byte[4096];
 

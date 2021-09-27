@@ -9,8 +9,8 @@ namespace WordCount
     {
         static void Main(string[] args)
         {
-            string[] targetWords = File.ReadAllLines("words.txt");
-            string[] text = File.ReadAllLines("text.txt");
+            string[] targetWords = File.ReadAllLines("../../../words.txt");
+            string[] text = File.ReadAllLines("../../../text.txt");
 
             Dictionary<string, int> wordsCount = new Dictionary<string, int>();
 
@@ -44,7 +44,7 @@ namespace WordCount
                 output.Add($"{item.Key} - {item.Value}");
             }
 
-            File.WriteAllLines("actualResult.txt", output);
+            File.WriteAllLines("../../../actualResult.txt", output);
         }
     }
 }

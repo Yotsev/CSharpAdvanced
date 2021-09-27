@@ -9,7 +9,7 @@ namespace LineNumbers
     {
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines("text.txt");
+            string[] lines = File.ReadAllLines("../../../text.txt");
 
             int counter = 1;
 
@@ -40,7 +40,7 @@ namespace LineNumbers
                 counter++;
             }
 
-            File.WriteAllLines("output.txt", output);
+            File.WriteAllLines("../../../output.txt", output);
         }
     }
 }

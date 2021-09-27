@@ -29,18 +29,18 @@ namespace DirectoryTraversal
                 filesInfo[extension].Add(fileName, size);
             }
 
-            StringBuilder bobTheBuilder = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             foreach (var item in filesInfo.OrderByDescending(e => e.Value.Count).ThenBy(e => e.Key))
             {
-                bobTheBuilder.AppendLine(item.Key);
+                sb.AppendLine(item.Key);
                 foreach (var file in item.Value.OrderBy(f => f.Value))
                 {
-                    bobTheBuilder.AppendLine($"--{file.Key} - {file.Value:F2}kb");
+                    sb.AppendLine($"--{file.Key} - {file.Value:F2}kb");
                 }
             }
-            // randomPath - your needed path
-            File.WriteAllText("../../../report.txt", bobTheBuilder.ToString());
+            
+            File.WriteAllText(@$"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\report.txt", sb.ToString());
         }
     }
 }

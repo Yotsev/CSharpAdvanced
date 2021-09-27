@@ -7,6 +7,8 @@ namespace ZipAndExtract
     {
         static void Main(string[] args)
         {
+            ZipFile.CreateFromDirectory("../../../", "../../../file.zip");
+            ZipFile.ExtractToDirectory("../../../file.zip", "../../../");
         }
     }
 }
