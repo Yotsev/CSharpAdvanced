@@ -36,7 +36,7 @@ namespace DirectoryTraversal
                 sb.AppendLine(item.Key);
                 foreach (var file in item.Value.OrderBy(f => f.Value))
                 {
-                    sb.AppendLine($"--{file.Key} - {file.Value:F2}kb");
+                    sb.AppendLine($"--{file.Key} - {file.Value:F3}kb");
                 }
             }
             
