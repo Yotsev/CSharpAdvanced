@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guild", "Guild\Guild.csproj", "{56FA9BAD-5937-48E6-A420-B2417FFC0048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lootbox", "Lootbox\Lootbox.csproj", "{70D3DE11-1BE7-4787-A807-B71734D99577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReVolt", "ReVolt\ReVolt.csproj", "{C02DC5B2-6602-4039-8B8B-B24B77854E86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56FA9BAD-5937-48E6-A420-B2417FFC0048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FA9BAD-5937-48E6-A420-B2417FFC0048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FA9BAD-5937-48E6-A420-B2417FFC0048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FA9BAD-5937-48E6-A420-B2417FFC0048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D3DE11-1BE7-4787-A807-B71734D99577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D3DE11-1BE7-4787-A807-B71734D99577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D3DE11-1BE7-4787-A807-B71734D99577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D3DE11-1BE7-4787-A807-B71734D99577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02DC5B2-6602-4039-8B8B-B24B77854E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02DC5B2-6602-4039-8B8B-B24B77854E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02DC5B2-6602-4039-8B8B-B24B77854E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02DC5B2-6602-4039-8B8B-B24B77854E86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09ED337F-8E74-482D-B9BD-C8BDEC872512}
+	EndGlobalSection
+EndGlobal
