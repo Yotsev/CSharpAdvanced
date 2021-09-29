@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFightForGondor", "TheFightForGondor\TheFightForGondor.csproj", "{3E8EB673-60A3-4EB5-BF22-AC5412D0DFF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheFightForGondor", "TheFightForGondor\TheFightForGondor.csproj", "{3E8EB673-60A3-4EB5-BF22-AC5412D0DFF2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheRace", "TheRace\TheRace.csproj", "{021EEB7E-F83E-43DA-89A8-CFF588834F55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warships", "Warships\Warships.csproj", "{E36A6173-6E8A-4C91-8403-E86A5796D431}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{3E8EB673-60A3-4EB5-BF22-AC5412D0DFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E8EB673-60A3-4EB5-BF22-AC5412D0DFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E8EB673-60A3-4EB5-BF22-AC5412D0DFF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021EEB7E-F83E-43DA-89A8-CFF588834F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021EEB7E-F83E-43DA-89A8-CFF588834F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021EEB7E-F83E-43DA-89A8-CFF588834F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021EEB7E-F83E-43DA-89A8-CFF588834F55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E36A6173-6E8A-4C91-8403-E86A5796D431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36A6173-6E8A-4C91-8403-E86A5796D431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36A6173-6E8A-4C91-8403-E86A5796D431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E36A6173-6E8A-4C91-8403-E86A5796D431}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
