@@ -8,7 +8,7 @@ namespace _05.AppliedArithmetics
     {
         static void Main(string[] args)
         {
-            List<int> number = Console.ReadLine()
+            List<int> numbers = Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToList();
@@ -21,11 +21,11 @@ namespace _05.AppliedArithmetics
                 if (command == "print")
                 {
                     Action<List<int>> printNumbers = n => Console.WriteLine(string.Join(" ",n));
-                    printNumbers(number);
+                    printNumbers(numbers);
                 }
                 else
                 {
-                    number = number.Select(action).ToList();
+                    numbers = numbers.Select(action).ToList();
                 }
 
                 command = Console.ReadLine();
