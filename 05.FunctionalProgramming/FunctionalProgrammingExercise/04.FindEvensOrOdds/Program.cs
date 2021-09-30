@@ -21,7 +21,6 @@ namespace _04.FindEvensOrOdds
 
             print(number);
         }
-        //TODO: TEST (judge not working)
         private static Predicate<int> GetType(string type)
         {
             Predicate<int> typeOfNumbers;
