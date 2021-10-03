@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace ImplementingCustomList
+namespace ImplementingCustomStack
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
+
         }
     }
 }
