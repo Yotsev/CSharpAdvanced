@@ -7,7 +7,7 @@ namespace ImplementingCustomList
     {
         static void Main(string[] args)
         {
-           
+
         }
     }
 }

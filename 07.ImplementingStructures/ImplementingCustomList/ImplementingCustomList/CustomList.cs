@@ -22,7 +22,7 @@ namespace ImplementingCustomList
         {
             get
             {
-                if (index >= Count)
+                if (index >= this.Count)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -31,7 +31,7 @@ namespace ImplementingCustomList
             }
             set
             {
-                if (index >= Count)
+                if (index >= this.Count)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -102,7 +102,7 @@ namespace ImplementingCustomList
         }
         private void Resize()
         {
-            T[] copy = new T[initialCapacity * 2];
+            T[] copy = new T[this.items.Length * 2];
 
             for (int i = 0; i < this.items.Length; i++)
             {
