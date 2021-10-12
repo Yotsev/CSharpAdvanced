@@ -5,21 +5,14 @@ namespace Survivor
 {
     class Program
     {
+        static char[][] beach;
         static void Main(string[] args)
         {
-            int rows = int.Parse(Console.ReadLine());
+            int beachRows = int.Parse(Console.ReadLine());
 
-            char[][] beach = new char[rows][];
+            beach = new char[beachRows][];
 
-            for (int row = 0; row < beach.Length; row++)
-            {
-                char[] rowElements = Console.ReadLine()
-                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(char.Parse)
-                    .ToArray();
-
-                beach[row] = rowElements;
-            }
+            ReadBeach();
 
             string command = Console.ReadLine();
 
@@ -32,206 +25,99 @@ namespace Survivor
                     .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
                 string action = commandArgs[0];
-                int row = int.Parse(commandArgs[1]);
-                int col = int.Parse(commandArgs[2]);
-
-                bool isValidLocation = ValidLocation(beach, row, col);
+                int targetRow = int.Parse(commandArgs[1]);
+                int targetCol = int.Parse(commandArgs[2]);
 
                 if (action == "Find")
                 {
-                    if (isValidLocation)
+                    if (IsValidIndexes(targetRow, targetCol) && beach[targetRow][targetCol] == 'T')
                     {
-                        if (beach[row][col] == 'T')
-                        {
-                            collectedTokens++;
-                            beach[row][col] = '-';
-                        }
+                        collectedTokens++;
+                        beach[targetRow][targetCol] = '-';
                     }
                 }
                 else if (action == "Opponent")
                 {
                     string direction = commandArgs[3];
 
-
-                    if (isValidLocation)
+                    if (IsValidIndexes(targetRow, targetCol) && beach[targetRow][targetCol] == 'T')
                     {
-                        if (beach[row][col] == 'T')
-                        {
-                            opponentTokens++;
-                            beach[row][col] = '-';
-                        }
+                        opponentTokens++;
+                        beach[targetRow][targetCol] = '-';
 
-                        if (direction == "up")
-                        {
-                            opponentTokens = OponentMomentUp(beach, row, col, opponentTokens);
-                        }
-                        else if (direction == "down")
-                        {
-                            opponentTokens = OponentMomentDown(beach, row, col, opponentTokens);
-                        }
-                        else if (direction == "left")
-                        {
-                            opponentTokens = OponentMomentLeft(beach, row, col, opponentTokens);
-                        }
-                        else if (direction == "right")
-                        {
-                            opponentTokens = OponentMomentRight(beach, row, col, opponentTokens);
-                        }
+                        opponentTokens = OponentMovement(direction, opponentTokens, targetRow, targetCol);
                     }
                 }
+
 
                 command = Console.ReadLine();
             }
 
-            PrintBeach(beach);
+            PrintBeach();
+
             Console.WriteLine($"Collected tokens: {collectedTokens}");
             Console.WriteLine($"Opponent's tokens: {opponentTokens}");
-
         }
 
-        private static int OponentMomentRight(char[][] beach, int row, int col, int tokens)
+        private static int OponentMovement(string direction, int tokens, int row, int col)
         {
             int steps = 3;
+            int tokenCount = tokens;
+
+            int targetRow = row;
             int targetCol = col;
 
             while (steps > 0)
             {
-                targetCol++;
-
-                if (targetCol >= beach[row].Length)
+                if (direction == "up")
                 {
-                    targetCol = beach[row].Length - 1;
-
-                    if (beach[row][targetCol] == 'T')
-                    {
-                        tokens++;
-                        beach[row][targetCol] = '-';
-                    }
+                    targetRow--;
                 }
-                else
+                else if (direction == "down")
                 {
-                    if (beach[row][targetCol] == 'T')
-                    {
-                        tokens++;
-                        beach[row][targetCol] = '-';
-                    }
+                    targetRow++;
+                }
+                else if (direction == "left")
+                {
+                    targetCol--;
+                }
+                else if (direction == "right")
+                {
+                    targetCol++;
                 }
 
-                steps--;
-            }
-
-            return tokens;
-        }
-
-        private static int OponentMomentLeft(char[][] beach, int row, int col, int tokens)
-        {
-            int steps = 3;
-            int targetCol = col;
-
-            while (steps > 0)
-            {
-                targetCol--;
-
-                if (targetCol < 0)
+                if (IsValidIndexes(targetRow, targetCol) && beach[targetRow][targetCol] == 'T')
                 {
-                    targetCol = 0;
-
-                    if (beach[row][targetCol] == 'T')
-                    {
-                        tokens++;
-                        beach[row][targetCol] = '-';
-                    }
-                }
-                else
-                {
-                    if (beach[row][targetCol] == 'T')
-                    {
-                        tokens++;
-                        beach[row][targetCol] = '-';
-                    }
+                    tokenCount++;
+                    beach[targetRow][targetCol] = '-';
                 }
 
                 steps--;
             }
 
-            return tokens;
+            return tokenCount;
         }
 
-        private static int OponentMomentDown(char[][] beach, int row, int col, int tokens)
-        {
-            int steps = 3;
-            int targetRow = row;
-
-            while (steps > 0)
-            {
-                targetRow++;
-
-                if (targetRow >= beach.Length)
-                {
-                    targetRow = beach.Length - 1;
-
-                    if (beach[targetRow][col] == 'T')
-                    {
-                        tokens++;
-                        beach[targetRow][col] = '-';
-                    }
-                }
-                else
-                {
-                    if (beach[targetRow][col] == 'T')
-                    {
-                        tokens++;
-                        beach[targetRow][col] = '-';
-                    }
-                }
-
-                steps--;
-            }
-
-            return tokens;
-        }
-
-        private static int OponentMomentUp(char[][] beach, int row, int col, int tokens)
-        {
-            int steps = 3;
-            int targetRow = row;
-
-            while (steps > 0)
-            {
-                targetRow--;
-
-                if (targetRow < 0)
-                {
-                    targetRow = 0;
-
-                    if (beach[targetRow][col] == 'T')
-                    {
-                        tokens++;
-                        beach[targetRow][col] = '-';
-                    }
-                }
-                else
-                {
-                    if (beach[targetRow][col] == 'T')
-                    {
-                        tokens++;
-                        beach[targetRow][col] = '-';
-                    }
-                }
-
-                steps--;
-            }
-
-            return tokens;
-        }
-
-        private static bool ValidLocation(char[][] beach, int row, int col)
+        private static bool IsValidIndexes(int row, int col)
         {
             return row >= 0 && row < beach.Length
-                        && col >= 0 && col < beach[row].Length;
+                && col >= 0 && col < beach[row].Length;
         }
 
-        private static void PrintBeach(char[][] beach)
+        private static void ReadBeach()
+        {
+            for (int row = 0; row < beach.Length; row++)
+            {
+                char[] rowInfo = Console.ReadLine()
+                    .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(char.Parse)
+                    .ToArray();
+
+                beach[row] = rowInfo;
+            }
+        }
+
+        private static void PrintBeach()
         {
             for (int row = 0; row < beach.Length; row++)
             {
