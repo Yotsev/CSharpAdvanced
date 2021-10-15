@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 namespace IteratorsAndComparators
 {
@@ -10,7 +8,7 @@ namespace IteratorsAndComparators
         public int CompareTo(Book other)
         {
             int result = Year.CompareTo(other.Year);
-           
+
             if (result == 0)
             {
                 result = Title.CompareTo(other.Title);
@@ -24,13 +22,14 @@ namespace IteratorsAndComparators
 
         public Book(string title, int year, params string[] authors)
         {
-            Title = title;
-            Year = year;
-            Authors = new List<string>(authors);
+            this.Title = title;
+            this.Year = year;
+            this.Authors = new List<string>(authors);
         }
         public override string ToString()
         {
-            return $"{Title} - {Year}";
+            return $"{this.Title} - {this.Year}";
         }
+
     }
 }
