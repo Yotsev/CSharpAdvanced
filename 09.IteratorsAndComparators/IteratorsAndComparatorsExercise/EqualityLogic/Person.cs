@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace EqualityLogic
 {
-    public class Person
+    public class Person : IComparable<Person>
     {
         private string name;
         private int age;
@@ -19,16 +20,38 @@ namespace EqualityLogic
         public string Name { get { return this.name; } }
         public int Age { get { return this.age; } }
 
-        public override bool Equals(object obj)
+        public int CompareTo(Person other)
         {
-            var person = obj as Person;
+            int result = Name.CompareTo(other.Name);
 
-            return person != null && Name == person.Name && Age == person.Age;
+            if (result == 0)
+            {
+                result = Age.CompareTo(other.Age);
+            }
+
+            return result;
         }
-       
+
         public override int GetHashCode()
         {
-            return this.Name.GetHashCode() ^ this.Age.GetHashCode();
+            return Name.GetHashCode() ^ Age.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as Person;
+
+            if (other == null)
+            {
+                return false;
+            }
+
+            return this.Name == other.Name && this.Age == other.Age;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Name} {this.Age}";
         }
     }
 }
