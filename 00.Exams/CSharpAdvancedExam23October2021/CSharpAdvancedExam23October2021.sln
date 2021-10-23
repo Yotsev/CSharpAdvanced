@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFinder", "FoodFinder\FoodFinder.csproj", "{E63D1BB2-26B2-4DAB-8E8B-2E97925A058A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarket", "StockMarket\StockMarket.csproj", "{DD760310-ED8C-498E-95DD-01FE18180F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawnWars", "PawnWars\PawnWars.csproj", "{2D36D2BE-3491-4523-83A4-0683DE08EFB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E63D1BB2-26B2-4DAB-8E8B-2E97925A058A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63D1BB2-26B2-4DAB-8E8B-2E97925A058A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63D1BB2-26B2-4DAB-8E8B-2E97925A058A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63D1BB2-26B2-4DAB-8E8B-2E97925A058A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD760310-ED8C-498E-95DD-01FE18180F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD760310-ED8C-498E-95DD-01FE18180F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD760310-ED8C-498E-95DD-01FE18180F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD760310-ED8C-498E-95DD-01FE18180F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D36D2BE-3491-4523-83A4-0683DE08EFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D36D2BE-3491-4523-83A4-0683DE08EFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D36D2BE-3491-4523-83A4-0683DE08EFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D36D2BE-3491-4523-83A4-0683DE08EFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {056E288D-849B-4E2C-AD3A-DEED5A10EC8A}
+	EndGlobalSection
+EndGlobal
